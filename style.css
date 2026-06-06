@@ -1,0 +1,326 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#081b29;
+color:white;
+line-height:1.7;
+transition:.4s;
+}
+
+header{
+position:fixed;
+width:100%;
+top:0;
+left:0;
+z-index:1000;
+background:#0a2235;
+padding:18px 10%;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+color:#00abf0;
+font-size:30px;
+font-weight:bold;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#00abf0;
+}
+
+#theme-toggle{
+background:none;
+border:none;
+color:white;
+font-size:20px;
+cursor:pointer;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:120px 10%;
+gap:80px;
+}
+
+.hero-content{
+flex:1;
+}
+
+.hero-content h3{
+font-size:28px;
+}
+
+.hero-content h1{
+font-size:65px;
+color:#00abf0;
+margin:10px 0;
+}
+
+.hero-content h2{
+font-size:30px;
+margin-bottom:20px;
+}
+
+.hero-content p{
+max-width:650px;
+font-size:18px;
+color:#d0d0d0;
+}
+
+/* এখানে ইমেজ কালার টোন অ্যাড করা হয়েছে */
+.hero-image img{
+width:380px;
+height:380px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid #00abf0;
+box-shadow:0 0 40px rgba(0,171,240,.4);
+/* ব্লু থিমের সাথে ম্যাচ করতে grayscale এবং সায়ান-ব্লু ফিল্টার ব্যবহার করা হয়েছে */
+filter: grayscale(100%) brightness(90%) contrast(110%);
+transition: .4s ease-in-out;
+}
+
+/* মাউস কার্সার ছবির উপর নিলে অরিজিনাল কালার দেখাবে */
+.hero-image img:hover{
+filter: grayscale(0%) brightness(100%) contrast(100%);
+transform: scale(1.03); /* সামান্য জুম ইফেক্ট */
+box-shadow: 0 0 50px rgba(0,171,240,.7); /* গ্লো ইফেক্ট বৃদ্ধি পাবে */
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+margin-top:25px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 28px;
+background:#00abf0;
+color:white;
+text-decoration:none;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.btn-outline{
+background:transparent;
+border:2px solid #00abf0;
+}
+
+section{
+padding:100px 10%;
+}
+
+.section-title{
+text-align:center;
+font-size:38px;
+margin-bottom:25px;
+color:#00abf0;
+}
+
+.skill-subtitle{
+text-align:center;
+margin-bottom:40px;
+color:#cfcfcf;
+}
+
+.card{
+background:#102d44;
+padding:35px;
+border-radius:15px;
+}
+
+.skills-container{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
+
+.skill{
+padding:15px 25px;
+background:#102d44;
+border-radius:10px;
+transition:.4s;
+}
+
+.skill:hover{
+background:#00abf0;
+transform:translateY(-5px);
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.service-card{
+background:#102d44;
+padding:25px;
+border-radius:15px;
+transition:.4s;
+}
+
+.service-card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 20px rgba(0,171,240,.2);
+}
+
+.contact-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.contact-form form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:15px;
+border:none;
+outline:none;
+background:#102d44;
+color:white;
+border-radius:10px;
+}
+
+.contact-info{
+background:#102d44;
+padding:30px;
+border-radius:15px;
+}
+
+.contact-info a{
+color:#00abf0;
+text-decoration:none;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#061521;
+}
+
+footer h3{
+color:#00abf0;
+margin-bottom:10px;
+}
+
+.light{
+background:white;
+color:black;
+}
+
+.light .card,
+.light .service-card,
+.light .skill,
+.light .contact-info,
+.light .contact-form input,
+.light .contact-form textarea{
+background:#f2f2f2;
+color:black;
+}
+
+.light header{
+background:white;
+}
+
+.light .nav-links a{
+color:black;
+}
+
+/* লাইট মোডে ছবির ফিল্টার কিছুটা রিঅ্যাডজাস্ট করার জন্য */
+.light .hero-image img{
+filter: grayscale(80%) brightness(100%);
+}
+
+.light .hero-image img:hover{
+filter: grayscale(0%);
+}
+
+@media(max-width:992px){
+
+.hero{
+flex-direction:column-reverse;
+text-align:center;
+}
+
+.hero-content p{
+margin:auto;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+}
+
+@media(max-width:768px){
+
+.nav-links{
+display:none;
+}
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+.hero-image img{
+width:280px;
+height:280px;
+}
+
+.hero-content h1{
+font-size:42px;
+}
+
+.hero-content h2{
+font-size:24px;
+}
+
+.section-title{
+font-size:30px;
+}
+
+}
