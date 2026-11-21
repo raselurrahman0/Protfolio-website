@@ -13,7 +13,7 @@
 <header class="nav" id="nav"><div class="wrap nav-in">
   <a href="#home" class="brand"><img src="logo.svg" alt="" width="34" height="34"><span>Rasel<b>.</b></span></a>
   <nav id="menu"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#certifications">Certificates</a><a href="#contact">Contact</a></nav>
-  <div class="nav-r"><button id="theme" class="icon-btn" aria-label="Toggle theme"></button><a class="btn sm" href="resume.png" download="Rasel_Ur_Rahman_Resume.png" data-i="download">CV</a><button id="burger" class="icon-btn" aria-label="Menu" data-i="menu"></button></div>
+  <div class="nav-r"><div class="tp"><button id="theme" class="icon-btn" aria-label="Change theme" data-i="palette"></button><div id="themes" class="tmenu"></div></div><a class="btn sm" href="resume.png" download="Rasel_Ur_Rahman_Resume.png" data-i="download">CV</a><button id="burger" class="icon-btn" aria-label="Menu" data-i="menu"></button></div>
 </div></header>
 
 <main>
@@ -46,21 +46,22 @@
 <section id="certifications" class="sec"><div class="wrap"><div class="head reveal"><small>Certificates</small><h3>Certifications</h3></div><div class="grid3" id="certBox"></div></div></section>
 <section id="activities" class="sec alt"><div class="wrap"><div class="head reveal"><small>Activities</small><h3>Leadership &amp; activities</h3></div><div class="grid3" id="actBox"></div></div></section>
 
-<section id="resume" class="sec"><div class="wrap grid2 center">
-  <div class="reveal"><div class="head left"><small>Resume</small><h3>Get my CV</h3></div><p class="muted">A one-page summary of my skills, projects and education.</p><div class="cta"><a class="btn" href="resume.png" download="Rasel_Ur_Rahman_Resume.png" data-i="download">Download CV</a><button class="btn ghost" id="viewCv">View Online</button></div></div>
-  <div class="cv-prev reveal"><img src="resume.png" alt="Resume preview" loading="lazy" id="cvImg"></div>
-</div></section>
+<section id="resume" class="sec"><div class="wrap"><div class="cvbox reveal">
+  <button class="cvicon" id="cvCard" aria-label="View my CV" data-i="file"></button>
+  <div><h3>My Resume</h3><p class="muted">Click the icon to view my CV, or download it.</p>
+  <div class="cta"><button class="btn sm" id="viewCv" data-i="eye">View CV</button><a class="btn sm ghost" href="resume.png" download="Rasel_Ur_Rahman_Resume.png" data-i="download">Download</a></div></div>
+</div></div></section>
 
 <section id="contact" class="sec alt"><div class="wrap"><div class="head reveal"><small>Contact</small><h3>Let's work together</h3></div>
   <div class="grid2 reveal">
-    <div class="card"><h4>Get in touch</h4><p class="muted">Open to internships, freelance work and collaborations.</p><ul class="info" id="info"></ul></div>
-    <form class="card" id="form"><label>Your name<input name="name" required></label><label>Your email<input name="email" type="email" required></label><label>Subject<input name="subject" required></label><label>Message<textarea name="message" rows="5" required></textarea></label><button class="btn" type="submit" data-i="send">Send via Gmail</button><p class="muted small">This opens Gmail with your message ready to send to me. <a href="#" id="mailto">Use another mail app</a></p></form>
+    <div class="card"><h4>Get in touch</h4><p class="muted small">Open to internships, freelance work and collaborations.</p><ul class="info" id="info"></ul></div>
+    <form class="card" id="form"><div class="row2"><label>Your name<input name="name" required></label><label>Your email<input name="email" type="email" required></label></div><label>Subject<input name="subject" required></label><label>Message<textarea name="message" rows="3" required></textarea></label><button class="btn" type="submit" data-i="send">Send via Gmail</button><p class="muted small">Opens Gmail with your message ready. <a href="#" id="mailto">Use another mail app</a></p></form>
   </div></div></section>
 </main>
 
 <footer><div class="wrap foot"><span>© 2026 Rasel Ur Rahman. All rights reserved.</span><span>Full Stack Web Developer · Software Developer</span></div></footer>
 <button id="top" class="top" aria-label="Back to top" data-i="up"></button>
-<div class="lb" id="lb"><img src="resume.png" alt="Resume"><button class="icon-btn" id="lbx" data-i="x"></button></div>
+<div class="lb" id="lb"><img src="resume.png" alt="Resume" loading="lazy"><button class="icon-btn" id="lbx" data-i="x"></button></div>
 <div class="toast" id="toast"></div>
 <script src="script.js"></script>
 </body></html>

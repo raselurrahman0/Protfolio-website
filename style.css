@@ -55,3 +55,21 @@ html{font-size:14px}.wrap{max-width:1020px}
 .tags span{padding:3px 9px;font-size:.75rem}.card p{font-size:.9rem}.head h3{font-size:clamp(1.4rem,3vw,1.9rem)}
 .grid2>.card:hover{border-color:var(--pr)}.cv-prev{width:min(280px,100%)}
 @media(max-width:900px){.photo{width:min(190px,55%)}}
+
+/* ===== extra themes: copy one block, rename, change colors, then add it to THEMES in script.js ===== */
+[data-theme=purple]{--bg:#130d24;--alt:#181030;--card:#1e1538;--tx:#f1ecff;--mu:#b3a7d6;--bd:#302452;--sh:0 10px 30px rgba(0,0,0,.4);--pr:#a78bfa;--ac:#f472b6;--g:linear-gradient(135deg,#7c3aed,#ec4899)}
+[data-theme=sunset]{--bg:#1a0f0c;--alt:#211410;--card:#2a1913;--tx:#fff1ea;--mu:#d1aa9b;--bd:#4a2c22;--sh:0 10px 30px rgba(0,0,0,.4);--pr:#fb923c;--ac:#facc15;--g:linear-gradient(135deg,#f97316,#ef4444)}
+[data-theme=forest]{--bg:#0b1511;--alt:#0e1c16;--card:#12241c;--tx:#e8f6ee;--mu:#9dbcaa;--bd:#1f3a2d;--sh:0 10px 30px rgba(0,0,0,.4);--pr:#34d399;--ac:#a3e635;--g:linear-gradient(135deg,#059669,#65a30d)}
+.tp{position:relative}.tmenu{position:absolute;right:0;top:46px;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:8px;display:none;min-width:170px;box-shadow:var(--sh)}.tmenu.o{display:grid;gap:2px}
+.tmenu button{display:flex;align-items:center;gap:10px;padding:8px 10px;border:0;background:none;color:var(--tx);font:500 .85rem Inter,sans-serif;border-radius:9px;cursor:pointer;text-align:left}.tmenu button:hover,.tmenu button.on{background:var(--alt)}.tmenu i{width:16px;height:16px;border-radius:50%;background:var(--c);border:2px solid var(--bd)}
+/* compact contact */
+#contact{padding:34px 0}#contact .head{margin-bottom:16px}#contact .grid2{max-width:800px;margin:auto;grid-template-columns:.9fr 1.1fr;gap:14px}#contact .card{padding:16px}#contact h4{margin-bottom:4px}
+#contact label{font-size:.78rem;margin-bottom:8px}#contact input,#contact textarea{padding:8px 10px;margin-top:3px;font-size:.88rem}.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.info{gap:8px;margin-top:10px}.info .ico{width:32px;height:32px;border-radius:10px}.info .ico svg{width:16px;height:16px}.info li{gap:10px;font-size:.88rem}#contact .btn{padding:9px 16px;width:100%;justify-content:center}
+@media(max-width:700px){#contact .grid2{grid-template-columns:1fr}}@media(max-width:480px){.row2{grid-template-columns:1fr}}
+
+/* compact resume */
+#resume{padding:30px 0}.cvbox{max-width:620px;margin:auto;display:flex;align-items:center;gap:20px;background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:18px 22px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.cvbox::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--g)}.cvbox h3{font-size:1.2rem;font-weight:800}.cvbox .muted{font-size:.88rem;margin:2px 0 10px}
+.cvicon{flex:none;width:76px;height:76px;border-radius:22px;border:0;background:var(--g);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 22px rgba(31,111,178,.35);transition:.25s}.cvicon svg{width:36px;height:36px}.cvicon:hover{transform:scale(1.08) rotate(-5deg)}
+@media(max-width:520px){.cvbox{flex-direction:column;text-align:center}.cvbox .cta{justify-content:center}}

@@ -1,4 +1,7 @@
 /* ============ EDIT YOUR CONTENT HERE (everything below renders automatically) ============ */
+/* THEMES: add a new line here + a matching [data-theme=name] block in style.css */
+const DEFAULT_THEME = "dark";
+const THEMES = [["dark","Dark (default)","#1f6fb2"],["light","Light","#e2e8f0"],["purple","Purple","#a78bfa"],["sunset","Sunset","#fb923c"],["forest","Forest","#34d399"]];
 const EMAIL = "raselurrahman1@gmail.com";
 const DATA = {
   roles: ["Full Stack Web Developer", "Django Developer", "Software Developer", "Cybersecurity Enthusiast"],
@@ -77,6 +80,9 @@ const P = {
  moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/>',
  github:'<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.4 6.4-1.5 6.4-7A5.4 5.4 0 0 0 20 4.8 5.1 5.1 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5.1 5.1 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.8c0 5.4 3.3 6.6 6.4 7A3.4 3.4 0 0 0 9 18.1V22"/>',
  linkedin:'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
+ palette:'<circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.3-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.4a5 5 0 0 0 5-5C22 6 17.5 2 12 2z"/>',
+ file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8M10 9H8"/>',
+ eye:'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>',
  up:'<polyline points="18 15 12 9 6 15"/>', menu:'<path d="M3 6h18M3 12h18M3 18h18"/>', x:'<path d="M18 6 6 18M6 6l12 12"/>', ext:'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><path d="M10 14 21 3"/>'
 };
 const ic = n => `<svg viewBox="0 0 24 24" aria-hidden="true">${P[n]||""}</svg>`;
@@ -106,11 +112,14 @@ drawProjects("all");
 $$("[data-i]").forEach(el => el.insertAdjacentHTML("afterbegin", ic(el.dataset.i)));
 
 /* theme */
-const root = document.documentElement, tb = $("#theme");
-const setTheme = t => { root.dataset.theme = t; tb.innerHTML = ic(t === "dark" ? "sun" : "moon"); try { localStorage.setItem("theme", t); } catch (e) {} };
+const root = document.documentElement, tm = $("#themes");
+const setTheme = t => { if (!THEMES.some(x => x[0] === t)) t = DEFAULT_THEME; root.dataset.theme = t; $$("#themes button").forEach(b => b.classList.toggle("on", b.dataset.t === t)); try { localStorage.setItem("theme", t); } catch (e) {} };
+tm.innerHTML = THEMES.map(([k, n, c]) => `<button data-t="${k}" style="--c:${c}"><i></i>${n}</button>`).join("");
 let saved = null; try { saved = localStorage.getItem("theme"); } catch (e) {}
-setTheme(saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
-tb.onclick = () => setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+setTheme(saved || DEFAULT_THEME);
+$("#theme").onclick = e => { e.stopPropagation(); tm.classList.toggle("o"); };
+tm.onclick = e => { const b = e.target.closest("button"); if (b) { setTheme(b.dataset.t); tm.classList.remove("o"); } };
+document.addEventListener("click", () => tm.classList.remove("o"));
 
 /* mobile menu, nav state, back to top */
 $("#burger").onclick = () => $("#menu").classList.toggle("o");
@@ -134,7 +143,7 @@ $$(".reveal").forEach(el => io.observe(el));
     setTimeout(tick, d); })(); })();
 
 /* resume viewer */
-const lb = $("#lb"); $("#viewCv").onclick = $("#cvImg").onclick = () => lb.classList.add("o");
+const lb = $("#lb"); $("#viewCv").onclick = $("#cvCard").onclick = () => lb.classList.add("o");
 lb.onclick = e => { if (e.target === lb || e.target.closest("#lbx")) lb.classList.remove("o"); };
 addEventListener("keydown", e => e.key === "Escape" && lb.classList.remove("o"));
 
