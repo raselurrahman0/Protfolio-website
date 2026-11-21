@@ -51,7 +51,7 @@ const DATA = {
     ["book","Member","Varendra University Research Club (VURC)"],
     ["chess","Chess Player","Achieved an international chess rating of 1400."]
   ],
-  contact: [["mail","Email",EMAIL,"mailto:"+EMAIL],["phone","Phone","+8801742767562","tel:+8801742767562"],["pin","Location","Rajshahi, Bangladesh",""],["linkedin","LinkedIn","linkedin.com/in/raselurrahman","https://www.linkedin.com/in/raselurrahman"]]
+  contact: [["mail","Email",EMAIL,"mailto:"+EMAIL],["phone","Phone","+8801742767562","tel:+8801742767562"],["pin","Location","Rajshahi, Bangladesh",""],["linkedin","LinkedIn","linkedin.com/in/raselurrahman","https://www.linkedin.com/in/raselurrahman"],["github","GitHub","github.com/raselurrahman0","https://github.com/raselurrahman0"]]
 };
 /* ================================ ENGINE ================================ */
 const P = {
@@ -141,11 +141,6 @@ $$(".reveal").forEach(el => io.observe(el));
   (function tick() { const w = DATA.roles[r]; c += del ? -1 : 1; el.textContent = w.slice(0, c);
     let d = del ? 40 : 85; if (!del && c === w.length) { del = true; d = 1400; } else if (del && c === 0) { del = false; r = (r + 1) % DATA.roles.length; d = 350; }
     setTimeout(tick, d); })(); })();
-
-/* resume viewer */
-const lb = $("#lb"); $("#viewCv").onclick = $("#cvCard").onclick = () => lb.classList.add("o");
-lb.onclick = e => { if (e.target === lb || e.target.closest("#lbx")) lb.classList.remove("o"); };
-addEventListener("keydown", e => e.key === "Escape" && lb.classList.remove("o"));
 
 /* contact form -> opens Gmail compose with the message ready */
 const toast = m => { const t = $("#toast"); t.textContent = m; t.classList.add("s"); setTimeout(() => t.classList.remove("s"), 3500); };

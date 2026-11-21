@@ -73,3 +73,6 @@ html{font-size:14px}.wrap{max-width:1020px}
 .cvbox::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--g)}.cvbox h3{font-size:1.2rem;font-weight:800}.cvbox .muted{font-size:.88rem;margin:2px 0 10px}
 .cvicon{flex:none;width:76px;height:76px;border-radius:22px;border:0;background:var(--g);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 22px rgba(31,111,178,.35);transition:.25s}.cvicon svg{width:36px;height:36px}.cvicon:hover{transform:scale(1.08) rotate(-5deg)}
 @media(max-width:520px){.cvbox{flex-direction:column;text-align:center}.cvbox .cta{justify-content:center}}
+
+/* contact: a bit smaller */
+#contact{padding:28px 0}#contact .grid2{max-width:720px;gap:12px}#contact .card{padding:14px}.info{gap:6px}.info li{font-size:.84rem}#contact .info small{font-size:.72rem}
